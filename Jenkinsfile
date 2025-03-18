@@ -13,12 +13,10 @@ pipeline {
                 sh 'sudo curl -sL https://rpm.nodesource.com/setup_16.x | sudo bash -'
                 sh 'sudo yum install -y nodejs'
                 sh 'sudo node -v'
-                sh 'sudo mkdir /jenkins/workspace/node_deployment/public-ip-app && sudo chown ec2-user:ec2-user /jenkins/workspace/node_deployment/public-ip-app'
-                sh 'sudo cd /jenkins/workspace/node_deployment/public-ip-app'
-                sh 'sudo git clone https://github.com/soumyabiswas37/jenkins-project5.git'
-                sh "sudo rm -rf /jenkins/workspace/node_deployment@2 && rm -rf /jenkins/workspace/node_deployment@2@tmp"
+                sh 'sudo mkdir /public-ip-app && sudo chown ec2-user:ec2-user /public-ip-app'
+                sh 'sudo cp /jenkins/workspace/node_deployment@2/app.js /public-ip-app'
+                sh 'sudo cd /public-ip-app'
                 sh 'sudo npm init -y'
-                sh 'sudo cp /jenkins/workspace/node_deployment/app.js .'
                 sh 'sudo node app.js'
                 sh 'sudo curl http://localhost:3000'
             }
@@ -36,18 +34,16 @@ pipeline {
                     }
                     steps {
                         sh 'sudo git --version'
-                        sh "pwd"
+                        sh "sudo pwd"
                         sh 'sudo ls -lrt'
                         sh 'sudo yum update -y'
                         sh 'sudo curl -sL https://rpm.nodesource.com/setup_16.x | sudo bash -'
                         sh 'sudo yum install -y nodejs'
                         sh 'sudo node -v'
-                        sh 'sudo mkdir /jenkins/workspace/node_deployment/public-ip-app && sudo chown ec2-user:ec2-user /jenkins/workspace/node_deployment/public-ip-app'
-                        sh 'sudo cd /jenkins/workspace/node_deployment/public-ip-app'
-                        sh 'sudo git clone https://github.com/soumyabiswas37/jenkins-project5.git'
-                        sh "sudo rm -rf /jenkins/workspace/node_deployment@2 && rm -rf /jenkins/workspace/node_deployment@2@tmp"
+                        sh 'sudo mkdir /public-ip-app && sudo chown ec2-user:ec2-user /public-ip-app'
+                        sh 'sudo cp /jenkins/workspace/node_deployment@2/app.js /public-ip-app'
+                        sh 'sudo cd /public-ip-app'
                         sh 'sudo npm init -y'
-                        sh 'sudo cp /jenkins/workspace/node_deployment/app.js .'
                         sh 'sudo node app.js'
                         sh 'sudo curl http://localhost:3000'
                     }
@@ -58,17 +54,16 @@ pipeline {
                     }
                     steps {
                         sh 'sudo git --version'
+                        sh "sudo pwd"
                         sh 'sudo ls -lrt'
                         sh 'sudo yum update -y'
                         sh 'sudo curl -sL https://rpm.nodesource.com/setup_16.x | sudo bash -'
                         sh 'sudo yum install -y nodejs'
                         sh 'sudo node -v'
-                        sh 'sudo mkdir /jenkins/workspace/node_deployment/public-ip-app && sudo chown ec2-user:ec2-user /jenkins/workspace/node_deployment/public-ip-app'
-                        sh 'sudo cd /jenkins/workspace/node_deployment/public-ip-app'
-                        sh 'sudo git clone https://github.com/soumyabiswas37/jenkins-project5.git'
-                        sh "sudo rm -rf /jenkins/workspace/node_deployment@2 && rm -rf /jenkins/workspace/node_deployment@2@tmp"
+                        sh 'sudo mkdir /public-ip-app && sudo chown ec2-user:ec2-user /public-ip-app'
+                        sh 'sudo cp /jenkins/workspace/node_deployment@2/app.js /public-ip-app'
+                        sh 'sudo cd /public-ip-app'
                         sh 'sudo npm init -y'
-                        sh 'sudo cp /jenkins/workspace/node_deployment/app.js .'
                         sh 'sudo node app.js'
                         sh 'sudo curl http://localhost:3000'
                     }

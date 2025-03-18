@@ -6,19 +6,14 @@ pipeline {
                 label 'PPRD'
             }
             steps {
-                sh 'sudo git --version'
                 sh "sudo pwd"
                 sh 'sudo ls -lrt'
                 sh 'sudo yum update -y'
-                sh 'sudo curl -sL https://rpm.nodesource.com/setup_16.x | sudo bash -'
-                sh 'sudo yum install -y nodejs'
-                sh 'sudo node -v'
-                sh 'sudo mkdir /public-ip-app && sudo chown ec2-user:ec2-user /public-ip-app'
-                sh 'sudo cp /jenkins/workspace/node_deployment@2/app.js /public-ip-app'
-                sh 'sudo cd /public-ip-app'
-                sh 'sudo npm init -y && sudo npm config set init.name "node-deployment-2"'
-                sh 'sudo node app.js'
-                sh 'sudo curl http://localhost:3000'
+                sh 'sudo yum install httpd'
+                sh 'sudo cp -p index.html /var/www/html'
+                sh 'sudo systemctl enable --now httpd'
+                sh 'sudo systemctl status httpd'
+                sh 'sudo curl http://localhost:80'
             }
         }
         stage("Verify and Approve") {
@@ -33,19 +28,14 @@ pipeline {
                         label 'PROD1'
                     }
                     steps {
-                        sh 'sudo git --version'
                         sh "sudo pwd"
                         sh 'sudo ls -lrt'
                         sh 'sudo yum update -y'
-                        sh 'sudo curl -sL https://rpm.nodesource.com/setup_16.x | sudo bash -'
-                        sh 'sudo yum install -y nodejs'
-                        sh 'sudo node -v'
-                        sh 'sudo mkdir /public-ip-app && sudo chown ec2-user:ec2-user /public-ip-app'
-                        sh 'sudo cp /jenkins/workspace/node_deployment@2/app.js /public-ip-app'
-                        sh 'sudo cd /public-ip-app'
-                        sh 'sudo npm init -y && sudo npm config set init.name "node-deployment-2"'
-                        sh 'sudo node app.js'
-                        sh 'sudo curl http://localhost:3000'
+                        sh 'sudo yum install httpd'
+                        sh 'sudo cp -p index.html /var/www/html'
+                        sh 'sudo systemctl enable --now httpd'
+                        sh 'sudo systemctl status httpd'
+                        sh 'sudo curl http://localhost:80'
                     }
                 }
                 stage("Deployment in 2nd PROD Machine") {
@@ -53,19 +43,14 @@ pipeline {
                         label 'PROD2'
                     }
                     steps {
-                        sh 'sudo git --version'
                         sh "sudo pwd"
                         sh 'sudo ls -lrt'
                         sh 'sudo yum update -y'
-                        sh 'sudo curl -sL https://rpm.nodesource.com/setup_16.x | sudo bash -'
-                        sh 'sudo yum install -y nodejs'
-                        sh 'sudo node -v'
-                        sh 'sudo mkdir /public-ip-app && sudo chown ec2-user:ec2-user /public-ip-app'
-                        sh 'sudo cp /jenkins/workspace/node_deployment@2/app.js /public-ip-app'
-                        sh 'sudo cd /public-ip-app'
-                        sh 'sudo npm init -y && sudo npm config set init.name "node-deployment-2"'
-                        sh 'sudo node app.js'
-                        sh 'sudo curl http://localhost:3000'
+                        sh 'sudo yum install httpd'
+                        sh 'sudo cp -p index.html /var/www/html'
+                        sh 'sudo systemctl enable --now httpd'
+                        sh 'sudo systemctl status httpd'
+                        sh 'sudo curl http://localhost:80'
                     }
                 }
             }

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System Clock and IP</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: #fff;
+    }
+    .clock, .ip {
+      margin: 20px 0;
+      font-size: 2rem;
+    }
+    .container {
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to Your Amazon Linux Server APP Version:1</h1>
+    <div class="clock" id="clock"></div>
+    <div class="ip" id="ip">Fetching your IP address...</div>
+  </div>
+
+  <script>
+    // Display a live clock
+    function updateClock() {
+      const clockElement = document.getElementById('clock');
+      const now = new Date();
+      clockElement.textContent = now.toLocaleTimeString();
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Fetch and display the system IP address
+    async function fetchIP() {
+      try {
+        const response = await fetch('/api/ip'); // Ensure a server endpoint provides the IP
+        if (response.ok) {
+          const data = await response.json();
+          document.getElementById('ip').textContent = `IP Address: ${data.ip}`;
+        } else {
+          document.getElementById('ip').textContent = 'Failed to fetch IP address';
+        }
+      } catch (error) {
+        console.error('Error fetching IP:', error);
+        document.getElementById('ip').textContent = 'Error fetching IP address';
+      }
+    }
+    fetchIP();
+  </script>
+</body>
+</html>

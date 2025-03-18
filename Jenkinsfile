@@ -7,7 +7,6 @@ pipeline {
             }
             steps {
                 sh 'sudo git --version'
-                sh 'sudo git clone https://github.com/soumyabiswas37/jenkins-project5.git'
                 sh 'sudo ls -lrt'
                 sh 'sudo yum update -y'
                 sh 'sudo curl -sL https://rpm.nodesource.com/setup_16.x | sudo bash -'
@@ -15,6 +14,7 @@ pipeline {
                 sh 'sudo node -v'
                 sh 'sudo mkdir /jenkins/workspace/node_deployment/public-ip-app && sudo chown ec2-user:ec2-user /jenkins/workspace/node_deployment/public-ip-app'
                 sh 'sudo cd /jenkins/workspace/node_deployment/public-ip-app'
+                sh 'sudo git clone https://github.com/soumyabiswas37/jenkins-project5.git'
                 sh 'sudo npm init -y'
                 sh 'sudo cp /jenkins/workspace/node_deployment/app.js .'
                 sh 'sudo node app.js'
@@ -34,7 +34,6 @@ pipeline {
                     }
                     steps {
                         sh 'sudo git --version'
-                        sh 'sudo git clone https://github.com/soumyabiswas37/jenkins-project5.git'
                         sh 'sudo ls -lrt'
                         sh 'sudo yum update -y'
                         sh 'sudo curl -sL https://rpm.nodesource.com/setup_16.x | sudo bash -'
@@ -42,6 +41,7 @@ pipeline {
                         sh 'sudo node -v'
                         sh 'sudo mkdir /jenkins/workspace/node_deployment/public-ip-app && sudo chown ec2-user:ec2-user /jenkins/workspace/node_deployment/public-ip-app'
                         sh 'sudo cd /jenkins/workspace/node_deployment/public-ip-app'
+                        sh 'sudo git clone https://github.com/soumyabiswas37/jenkins-project5.git'
                         sh 'sudo npm init -y'
                         sh 'sudo cp /jenkins/workspace/node_deployment/app.js .'
                         sh 'sudo node app.js'
@@ -54,7 +54,6 @@ pipeline {
                     }
                     steps {
                         sh 'sudo git --version'
-                        sh 'sudo git clone https://github.com/soumyabiswas37/jenkins-project5.git'
                         sh 'sudo ls -lrt'
                         sh 'sudo yum update -y'
                         sh 'sudo curl -sL https://rpm.nodesource.com/setup_16.x | sudo bash -'
@@ -62,6 +61,7 @@ pipeline {
                         sh 'sudo node -v'
                         sh 'sudo mkdir /jenkins/workspace/node_deployment/public-ip-app && sudo chown ec2-user:ec2-user /jenkins/workspace/node_deployment/public-ip-app'
                         sh 'sudo cd /jenkins/workspace/node_deployment/public-ip-app'
+                        sh 'sudo git clone https://github.com/soumyabiswas37/jenkins-project5.git'
                         sh 'sudo npm init -y'
                         sh 'sudo cp /jenkins/workspace/node_deployment/app.js .'
                         sh 'sudo node app.js'

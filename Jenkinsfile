@@ -16,7 +16,7 @@ pipeline {
                 sh 'sudo mkdir /public-ip-app && sudo chown ec2-user:ec2-user /public-ip-app'
                 sh 'sudo cp /jenkins/workspace/node_deployment@2/app.js /public-ip-app'
                 sh 'sudo cd /public-ip-app'
-                sh 'sudo npm init -y'
+                sh 'sudo npm init -y && sudo npm config set init.name "node-deployment-2"'
                 sh 'sudo node app.js'
                 sh 'sudo curl http://localhost:3000'
             }
@@ -43,7 +43,7 @@ pipeline {
                         sh 'sudo mkdir /public-ip-app && sudo chown ec2-user:ec2-user /public-ip-app'
                         sh 'sudo cp /jenkins/workspace/node_deployment@2/app.js /public-ip-app'
                         sh 'sudo cd /public-ip-app'
-                        sh 'sudo npm init -y'
+                        sh 'sudo npm init -y && sudo npm config set init.name "node-deployment-2"'
                         sh 'sudo node app.js'
                         sh 'sudo curl http://localhost:3000'
                     }
@@ -63,7 +63,7 @@ pipeline {
                         sh 'sudo mkdir /public-ip-app && sudo chown ec2-user:ec2-user /public-ip-app'
                         sh 'sudo cp /jenkins/workspace/node_deployment@2/app.js /public-ip-app'
                         sh 'sudo cd /public-ip-app'
-                        sh 'sudo npm init -y'
+                        sh 'sudo npm init -y && sudo npm config set init.name "node-deployment-2"'
                         sh 'sudo node app.js'
                         sh 'sudo curl http://localhost:3000'
                     }

@@ -50,7 +50,7 @@ pipeline {
                 //     steps {
                 //         cleanWs()
                 //     }
-                }
+                //  }
                 stage("Cleaning workspace in PROD1") {
                     agent { label 'PROD1' }
                     steps {

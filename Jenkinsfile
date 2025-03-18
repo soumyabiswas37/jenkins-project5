@@ -35,6 +35,7 @@ pipeline {
                     }
                     steps {
                         sh 'sudo git --version'
+                        sh "pwd"
                         sh 'sudo ls -lrt'
                         sh 'sudo yum update -y'
                         sh 'sudo curl -sL https://rpm.nodesource.com/setup_16.x | sudo bash -'

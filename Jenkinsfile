@@ -15,6 +15,7 @@ pipeline {
                 sh 'sudo mkdir /jenkins/workspace/node_deployment/public-ip-app && sudo chown ec2-user:ec2-user /jenkins/workspace/node_deployment/public-ip-app'
                 sh 'sudo cd /jenkins/workspace/node_deployment/public-ip-app'
                 sh 'sudo git clone https://github.com/soumyabiswas37/jenkins-project5.git'
+                sh "sudo rm -rf /jenkins/workspace/node_deployment@2 && rm -rf /jenkins/workspace/node_deployment@2@tmp"
                 sh 'sudo npm init -y'
                 sh 'sudo cp /jenkins/workspace/node_deployment/app.js .'
                 sh 'sudo node app.js'
@@ -42,6 +43,7 @@ pipeline {
                         sh 'sudo mkdir /jenkins/workspace/node_deployment/public-ip-app && sudo chown ec2-user:ec2-user /jenkins/workspace/node_deployment/public-ip-app'
                         sh 'sudo cd /jenkins/workspace/node_deployment/public-ip-app'
                         sh 'sudo git clone https://github.com/soumyabiswas37/jenkins-project5.git'
+                        sh "sudo rm -rf /jenkins/workspace/node_deployment@2 && rm -rf /jenkins/workspace/node_deployment@2@tmp"
                         sh 'sudo npm init -y'
                         sh 'sudo cp /jenkins/workspace/node_deployment/app.js .'
                         sh 'sudo node app.js'
@@ -62,6 +64,7 @@ pipeline {
                         sh 'sudo mkdir /jenkins/workspace/node_deployment/public-ip-app && sudo chown ec2-user:ec2-user /jenkins/workspace/node_deployment/public-ip-app'
                         sh 'sudo cd /jenkins/workspace/node_deployment/public-ip-app'
                         sh 'sudo git clone https://github.com/soumyabiswas37/jenkins-project5.git'
+                        sh "sudo rm -rf /jenkins/workspace/node_deployment@2 && rm -rf /jenkins/workspace/node_deployment@2@tmp"
                         sh 'sudo npm init -y'
                         sh 'sudo cp /jenkins/workspace/node_deployment/app.js .'
                         sh 'sudo node app.js'

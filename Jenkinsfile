@@ -9,7 +9,7 @@ pipeline {
                 sh "sudo pwd"
                 sh 'sudo ls -lrt'
                 sh 'sudo yum update -y'
-                sh 'sudo yum install httpd'
+                sh 'sudo yum install httpd -y'
                 sh 'sudo cp -p index.html /var/www/html'
                 sh 'sudo systemctl enable --now httpd'
                 sh 'sudo systemctl status httpd'

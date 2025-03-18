@@ -55,7 +55,7 @@ pipeline {
                     steps {
                         sh 'sudo git --version'
                         sh "sudo pwd"
-                        sh 'sudo ls -lrt'
+                        sh 'sudo ls -l'
                         sh 'sudo yum update -y'
                         sh 'sudo curl -sL https://rpm.nodesource.com/setup_16.x | sudo bash -'
                         sh 'sudo yum install -y nodejs'

@@ -24,7 +24,7 @@ pipeline {
                         label 'PROD1'
                     }
                     steps {
-                        sh 'ls -lrt'
+                        sh 'ls -l'
                         sh 'sudo cp -p index.html /var/www/html'
                         sh 'sudo systemctl restart httpd'
                         sh 'sudo systemctl status httpd'
@@ -36,7 +36,7 @@ pipeline {
                         label 'PROD2'
                     }
                     steps {
-                        sh 'ls -lrt'
+                        sh 'ls -l'
                         sh 'sudo cp -p index.html /var/www/html'
                         sh 'sudo systemctl restart httpd'
                         sh 'sudo systemctl status httpd'

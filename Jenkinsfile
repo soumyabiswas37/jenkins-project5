@@ -6,7 +6,10 @@ pipeline {
         //         label 'PPRD'
         //     }
         //     steps {
-        //         sh 'sudo cp -p index.html /var/www/html'
+        //         sh 'ls -l'
+        //         sh 'sudo yum install php -y'
+        //         sh 'sudo cp -p index.php /var/www/html'
+        //         sh 'chown apache:apache /var/www/html -R'
         //         sh 'sudo systemctl restart httpd'
         //         sh 'sudo systemctl status httpd'
         //         sh 'sudo curl http://localhost:80'
@@ -25,7 +28,9 @@ pipeline {
                     }
                     steps {
                         sh 'ls -l'
-                        sh 'sudo cp -p index.html /var/www/html'
+                        sh 'sudo yum install php -y'
+                        sh 'sudo cp -p index.php /var/www/html'
+                        sh 'chown apache:apache /var/www/html -R'
                         sh 'sudo systemctl restart httpd'
                         sh 'sudo systemctl status httpd'
                         sh 'sudo curl http://localhost:80'
@@ -37,7 +42,9 @@ pipeline {
                     }
                     steps {
                         sh 'ls -l'
+                        sh 'sudo yum install php -y'
                         sh 'sudo cp -p index.html /var/www/html'
+                        sh 'chown apache:apache /var/www/html -R'
                         sh 'sudo systemctl restart httpd'
                         sh 'sudo systemctl status httpd'
                         sh 'sudo curl http://localhost:80'

@@ -1,25 +1,25 @@
 pipeline {
     agent any
     stages {
-        // stage("Cloning GIT and configuring application to PPRD") {
-        //     agent {
-        //         label 'PPRD'
-        //     }
-        //     steps {
-        //         sh 'ls -l'
-        //         sh 'sudo yum install php -y'
-        //         sh 'sudo cp -p index.php /var/www/html'
-        //         sh 'chown apache:apache /var/www/html -R'
-        //         sh 'sudo systemctl restart httpd'
-        //         sh 'sudo systemctl status httpd'
-        //         sh 'sudo curl http://localhost:80'
-        //     }
-        // }
-        // stage("Verify and Approve") {
-        //     steps {
-        //         input message: "Do you want to proceed?", ok: 'Yes'
-        //     }
-        // }
+        stage("Cloning GIT and configuring application to PPRD") {
+            agent {
+                label 'PPRD'
+            }
+            steps {
+                sh 'ls -l'
+                sh 'sudo yum install php -y'
+                sh 'sudo cp -p index.php /var/www/html'
+                sh 'sudo chown apache:apache /var/www/html -R'
+                sh 'sudo systemctl restart httpd'
+                sh 'sudo systemctl status httpd'
+                sh 'sudo curl http://localhost:80'
+            }
+        }
+        stage("Verify and Approve") {
+            steps {
+                input message: "Do you want to proceed?", ok: 'Yes'
+            }
+        }
         stage("Deployment in PROD") {
             parallel {
                 stage("Deployment in 1st PROD Machine") {

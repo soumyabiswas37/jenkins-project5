@@ -6,7 +6,7 @@ pipeline {
                 label 'PPRD'
             }
             steps {
-                sh 'ls -l'
+                sh 'ls -lrt'
                 sh 'sudo yum install php -y'
                 sh 'sudo cp -p index.php /var/www/html'
                 sh 'sudo chown apache:apache /var/www/html -R'
@@ -54,12 +54,12 @@ pipeline {
         }
         stage("Cleaning Workspace") {
             parallel {
-                // stage("Cleaning workspace in PPRD") {
-                //     agent { label 'PPRD'}
-                //     steps {
-                //         cleanWs()
-                //     }
-                //  }
+                stage("Cleaning workspace in PPRD") {
+                    agent { label 'PPRD'}
+                    steps {
+                        cleanWs()
+                    }
+                 }
                 stage("Cleaning workspace in PROD1") {
                     agent { label 'PROD1' }
                     steps {
